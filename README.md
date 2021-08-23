@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+The boilerplate for the project can be found [here](https://github.com/launchschool/airlines_boilerplate)
+
 ## Available Scripts
 
 In the project directory, you can run:
