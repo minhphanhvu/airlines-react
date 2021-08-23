@@ -17,9 +17,9 @@ const App = () => (
     {Data.routes.map(data => {
       return (
         <tr>
-          <td>{data.airline}</td>
-          <td>{data.src}</td>
-          <td>{data.dest}</td>
+          <td>{Data.getAirlineById(data.airline).name}</td>
+          <td>{Data.getAirportByCode(data.src).name}</td>
+          <td>{Data.getAirportByCode(data.dest).name}</td>
         </tr>
       )
     })}
