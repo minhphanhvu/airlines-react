@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 
 const Table = ({
-  data = {},
+  data={},
+  routes = [],
   className = "table",
   columns = [ {name: "header", property: "value"} ],
   perPage = 25
@@ -20,7 +21,7 @@ const Table = ({
     setPage(page - 1)
   }
 
-  const routes = data.routes.slice(start, start + perPage)
+  const pagRoutes = routes.slice(start, start + perPage)
 
   return (
     <div>
@@ -35,7 +36,7 @@ const Table = ({
         </tr>
       </thead>
       <tbody>
-        {routes.map(d => {
+        {pagRoutes.map(d => {
           return (
             <tr>
               <td>{data.getAirlineById(d.airline).name}</td>
@@ -47,11 +48,11 @@ const Table = ({
       </tbody>
       </table>
       <div className="pagination">
-        <p>Showing {start + 1} - {start + routes.length} of {data.routes.length} routes.</p>
+        <p>Showing {start + 1} - {start + perPage} of {routes.length} routes.</p>
         <button disabled={page === 0} onClick={perviousPage}>
           Previous Page
         </button>
-        <button disabled={start + perPage >= data.routes.length} onClick={nextPage}>
+        <button disabled={start + perPage >= routes.length} onClick={nextPage}>
           Next Page
         </button>
       </div>
